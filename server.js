@@ -11,6 +11,14 @@ const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
 let app = express();
+let helmet = require('helmet');
+
+// Use helmet to secure Express headers
+app.use(helmet.xssFilter());
+app.use(helmet.noSniff());
+app.use(helmet.frameguard());
+app.use(helmet.ieNoOpen());
+app.use(helmet.hidePoweredBy());
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
