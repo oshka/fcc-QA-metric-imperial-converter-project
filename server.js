@@ -35,7 +35,6 @@ app.route('/')
 
 //For FCC testing purposes
 fccTestingRoutes(app);
-
 //Routing for API 
 apiRoutes(app);  
     
@@ -47,6 +46,8 @@ app.use(function(req, res, next) {
 });
 
 //Start our server and tests!
+//console.log('process.env');
+//console.log(process.env);
 app.listen(process.env.PORT || 3000, function () {
   console.log("Listening on port " + process.env.PORT);
   if(process.env.NODE_ENV==='test') {
